@@ -18,9 +18,9 @@ metadata:
     component: keycloak
   annotations:
     kubernetes.io/ingress.class: {{ .Values.global.ingress.class | quote }}
-    nginx.ingress.kubernetes.io/proxy-buffer-size: "16k"
     {{ .Values.global.ingressAnnotationsPrefix }}ingress.kubernetes.io/proxy-read-timeout: "3600"
     {{ .Values.global.ingressAnnotationsPrefix }}ingress.kubernetes.io/proxy-connect-timeout: "3600"
+    {{ .Values.global.ingressAnnotationsPrefix }}nginx.ingress.kubernetes.io/proxy-buffer-size: "16k"
 {{- if .Values.global.tls.enabled }}
     {{ .Values.global.ingressAnnotationsPrefix }}ingress.kubernetes.io/ssl-redirect: "true"
 {{- else }}

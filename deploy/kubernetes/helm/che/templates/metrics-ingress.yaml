@@ -25,6 +25,7 @@ metadata:
     kubernetes.io/ingress.class: {{ .Values.global.ingress.class | quote }}
     {{ .Values.global.ingressAnnotationsPrefix }}ingress.kubernetes.io/proxy-read-timeout: "3600"
     {{ .Values.global.ingressAnnotationsPrefix }}ingress.kubernetes.io/proxy-connect-timeout: "3600"
+    {{ .Values.global.ingressAnnotationsPrefix }}ingress.kubernetes.io/proxy-buffer-size: "16k"
 {{- if and .Values.global.tls .Values.global.tls.enabled }}
     {{ .Values.global.ingressAnnotationsPrefix }}ingress.kubernetes.io/ssl-redirect: "true"
 {{- else }}
